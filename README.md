@@ -48,6 +48,3 @@ References
 
 - Jack W. Crenshaw, "MATH Toolkit for REAL-TIME Programming," CMP Books, ISBN: 1929629095, 2000.
 - Lonnie C. Ludeman, "Fundamentals of Digital Signal Processing," Harper & Row, ISBN: 0060440937, 1986.
-
-
-

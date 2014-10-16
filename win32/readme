@@ -1,0 +1,5 @@
+1. To use this library in windows, you will need VC++ 7.0 and higher compiler.
+2. To use GSL with this library, download and install WinGsl from the following location:
+http://www6.in.tum.de/~kiss/WinGsl.htm
+
+

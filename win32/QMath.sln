@@ -1,0 +1,47 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QMath", "QMath.vcproj", "{5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_Qmath", "test.vcproj", "{11CE14A1-8779-4E67-A50C-F2F944814B29}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52} = {5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QMathGsl", "QMathGsl.vcproj", "{5452F711-F9CD-4DDA-9BF2-C17DA73B0612}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52} = {5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_QmathGsl", "test_QmathGsl.vcproj", "{0F5CE258-302B-4A93-9BCE-EE45D1DF12E5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52} = {5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52}
+		{5452F711-F9CD-4DDA-9BF2-C17DA73B0612} = {5452F711-F9CD-4DDA-9BF2-C17DA73B0612}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52}.Debug|Win32.Build.0 = Debug|Win32
+		{5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52}.Release|Win32.ActiveCfg = Release|Win32
+		{5DB7D28C-CEDC-4FB6-848B-7F3B9B226D52}.Release|Win32.Build.0 = Release|Win32
+		{11CE14A1-8779-4E67-A50C-F2F944814B29}.Debug|Win32.ActiveCfg = Debug|Win32
+		{11CE14A1-8779-4E67-A50C-F2F944814B29}.Debug|Win32.Build.0 = Debug|Win32
+		{11CE14A1-8779-4E67-A50C-F2F944814B29}.Release|Win32.ActiveCfg = Release|Win32
+		{11CE14A1-8779-4E67-A50C-F2F944814B29}.Release|Win32.Build.0 = Release|Win32
+		{5452F711-F9CD-4DDA-9BF2-C17DA73B0612}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5452F711-F9CD-4DDA-9BF2-C17DA73B0612}.Debug|Win32.Build.0 = Debug|Win32
+		{5452F711-F9CD-4DDA-9BF2-C17DA73B0612}.Release|Win32.ActiveCfg = Release|Win32
+		{5452F711-F9CD-4DDA-9BF2-C17DA73B0612}.Release|Win32.Build.0 = Release|Win32
+		{0F5CE258-302B-4A93-9BCE-EE45D1DF12E5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0F5CE258-302B-4A93-9BCE-EE45D1DF12E5}.Debug|Win32.Build.0 = Debug|Win32
+		{0F5CE258-302B-4A93-9BCE-EE45D1DF12E5}.Release|Win32.ActiveCfg = Release|Win32
+		{0F5CE258-302B-4A93-9BCE-EE45D1DF12E5}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

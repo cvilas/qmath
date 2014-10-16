@@ -1,0 +1,114 @@
+README
+======
+
+Thu 01 Nov 2007 21:11:33 GMT: Modified Matrix::operator>>() to accept comma separated values. 
+
+Thu 30 Aug 2007 17:59:00 GMT: GSLCompat.hpp, GSLCompat.cpp and GSLCompat.t.cpp have been moved to 
+a separate library and released under GPL. This is because GSL is released under GPL and GSLCompat
+is derivative work. Note that the rest of the QMath library is LGPL.
+
+Wed 11 Apr 2007 13:50:00 GMT: TODO: Set precision for throwing divideByZero and
+singularMatrix exceptions based on the datatype (1e-6 for float, 1e-12 for double are good)
+
+Wed 15 Nov 2006 06:23:19 PM GMT: Fixed Tranform::vectorRotation() implementation error.
+
+
+// getAxisAngle function:
+
+void getAxisAngleFromRotation(Matrix<3,3> &R, Vector<3> &u, float &theta)
+{
+/*
+ double st, tt;
+ tt = 0.5 * (trace(R) - 1.0);
+ if( (fabsf(tt) < (1+ERROR_BOUND)) && (fabs(tt) > (1-ERROR_BOUND)) )
+ {
+  theta = 0;
+  u = 0;
+ }
+ else
+ {
+  theta = acos(tt);
+  st = 1.0/(2.0 * sin(theta));
+  u = R(3,2) - R(2,3), R(1,3) - R(3,1), R(2,1) - R(1,2);
+  u = st * u; 
+ } 
+*/
+	double q0;
+	Vector<3> q;
+	double kx, ky, kz, kx1, ky1, kz1;
+	double norm;
+	double denom;
+	double s;
+	bool add = false;
+	
+	// get the scalar
+	q0 = 0.5 * sqrt(R(1,1) + R(2,2) + R(3,3) + 1);
+	
+	// calculate the three vector
+	kx = R(3,2) - R(2,3);	// Oz - Ay
+	ky = R(1,3) - R(3,1);	// Ax - Nz
+	kz = R(2,1) - R(1,2);	// Ny - Ox
+
+	if ( (R(1,1) >= R(2,2)) && (R(1,1) >= R(3,3)) )
+	{
+		kx1 = R(1,1) - R(2,2) - R(3,3) + 1;	// Nx - Oy - Az + 1
+		ky1 = R(2,1) + R(1,2);			    // Ny + Ox
+		kz1 = R(3,1) + R(1,3);		    		// Nz + Ax
+		if(kx >= 0)
+			add = true;
+	}
+	else if( R(2,2) >= R(3,3) )
+	{
+ 	 	kx1 = R(2,1) + R(1,2);			    // Ny + Ox
+ 		ky1 = R(2,2) - R(1,1) - R(3,3) + 1;	// Oy - Nx - Az + 1
+		kz1 = R(3,2) + R(2,3);			    // Oz + Ay
+		if( ky >= 0 )
+			add = true;
+	}
+	else
+	{
+ 	   	kx1 = R(3,1) + R(1,3);			    // Nz + Ax
+		ky1 = R(3,2) + R(2,3);			    // Oz + Ay
+		kz1 = R(3,3) - R(1,1) - R(2,2) + 1;	// Az - Nx - Oy + 1
+		if( kz >= 0 )
+			add = true;
+	}
+
+	if(add)
+	{
+ 		kx = kx + kx1;
+		ky = ky + ky1;
+		kz = kz + kz1;
+	}
+	else
+	{
+    		kx = kx - kx1;
+		ky = ky - ky1;
+		kz = kz - kz1;
+	}
+	
+	norm = sqrt(kx * kx + ky * ky + kz * kz);
+	if(norm < ERROR_BOUND) // = 0 actually
+	{
+		q0 = 1;
+		q = 0,0,0;
+	}
+	else
+	{
+		s = (sqrt(1 - (q0 * q0))) / norm;
+		q = s * kx, s * ky, s * kz;
+	}
+	
+	if( q0 > 1) q0 = 1;
+	theta = 2.0 * acos(q0);
+	
+	if ( fabsf(theta) < ERROR_BOUND )
+		theta = 0;
+	
+	denom = sin(theta/2.0);
+	
+	if(denom)
+		u = q/denom;
+	else
+		u = 0;
+}

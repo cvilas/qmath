@@ -1,0 +1,7 @@
+README: QMathGsl library
+Aug 30 2007
+
+Note that while QMath is released under LGPL, this library is GPL. 
+Hence all derivative works using this library must be released under
+GPL. Derivative work may also include software that merely 
+dynamically/statically links with this library.       

@@ -35,8 +35,8 @@
 #endif
 
 #include "Vector.hpp"
-#include "gsl_matrix.h"
-#include "gsl_vector.h"
+#include "gsl/gsl_matrix.h"
+#include "gsl/gsl_vector.h"
 
 /*! Prototypes for typecasting to GSL data types. Note that the
     functions do not copy data between objects. Hence, changes made to 

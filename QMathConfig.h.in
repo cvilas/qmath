@@ -1,0 +1,7 @@
+
+// the configured options and settings for Tutorial
+#define QMATH_VERSION_MAJOR @QMATH_VERSION_MAJOR@
+#define QMATH_VERSION_MINOR @QMATH_VERSION_MINOR@
+
+#cmakedefine ENABLE_GSL
+

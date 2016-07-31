@@ -1,0 +1,5 @@
+- Pick a coding style 
+- Configure directory structure to match the coding style
+- update cmake files to build and install library properly
+- change files to match coding style and comply to C++14
+- 
